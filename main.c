@@ -7,21 +7,18 @@
 
 int main(int argc, char *argv[]) {
 	
-	int student[SIZE];
-	int i, sum = 0;
+	int a[SIZE] = {1, 2, 3, 4, 5};
+	int b[SIZE] = {1, 2, 3, 4, 0};
+	int i;
+
 	
 	for(i = 0; i < SIZE; i++)
 	{
-		printf("input grade[%d]:", i);
-		scanf("%d", &student[i]);
+		if(a[i]!=b[i])
+			printf("%d is different\n", i);		
 	}
 		
-	for(i = 0; i < SIZE; i++)
-	{
-		sum += student[i];
-		printf("student[%d] = %d\n", i, student[i]);
-	}
-	printf("average is %d\n", sum/5);
+	
 
 	return 0;
 }
