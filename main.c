@@ -1,36 +1,53 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define ROWS 3
+#define COLS 3
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-void square_array(int a[], int size);
-void print_array(int a[], int size);
-
+void addMatrix(int A[][COLS], int B[][COLS], int C[][COLS]);
+void printMatrix(int A[][COLS]);
 int main(int argc, char *argv[]) {
 	
-	int list[4] = {1, 2, 3, 4};
-	int i;
+	int A[ROWS][COLS] = {
+		{2, 3, 0},
+		{8, 9, 1},
+		{7, 0, 5}	
+};
+	int B[ROWS][COLS] = {
+		{1, 0, 0},
+		{0, 1, 0},
+		{0, 0, 1}	
+};
+	int C[ROWS][COLS];
 
-	print_array(list, 4);
-	square_array(list, 4);
-	print_array(list, 4);
+	addMatrix(A, B, C);
+	printMatrix(C);
 
 	return 0;
 }
 
-void square_array(int a[], int size)
+void addMatrix(int A[][COLS], int B[][COLS], int C[][COLS]) 
 {
-	int i;
-	for(i = 0; i < 4; i++)
-		a[i] = a[i] * a[i];
-}
-
-void print_array(int a[], int size)
-{
-	int i;
-	for(i = 0; i < 4; i++)
+	int i, j;
+	for(i = 0; i < ROWS; i++)
 	{
-		printf("%d\n", a[i]);
+		for(j = 0; j < COLS; j++)
+		{
+			C[i][j] = A[i][j] + B[i][j];
+		}
+	}
+}
+void printMatrix(int C[ROWS][COLS])
+{
+	int i, j;
+	for(i = 0; i < ROWS; i++)
+	{
+		for(j = 0; j < COLS; j++)
+		{
+			printf("%d ", C[i][j]);
+		}
+		printf("\n");
 	}
 }
 
